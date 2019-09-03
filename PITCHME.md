@@ -23,17 +23,18 @@
 ---
 @title[Abrindo o apetite]
 
-# Abrindo o apetite...
+## Abrindo o apetite...
 
 ---?code=src/flask_conf_tutorial/player_char.py
 @title[Abrindo o apetite]
 
-@[22-37](Testando atributos manualmente)
+@[23-48](Testando atributos manualmente)
 
----?code=src/flask_conf_tutorial/test_empregado.py
+---?code=src/flask_conf_tutorial/test_player_char.py
 @title[Abrindo o apetite]
 
-@[40-47](Testando atributos com pytest-regressions)
+@[22-37](sem pytest-regressions)
+@[40-47](com pytest-regressions)
 
 ---?code=src/flask_conf_tutorial/test_empregado.py
 @title[Abrindo o apetite]
