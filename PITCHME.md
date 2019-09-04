@@ -47,17 +47,115 @@
 ---
 @title[JetBrains Survey]
 
-@snap[north-west snap-66]
 ![img](assets/jetbrains-2018-tests.png)
-@snapend
 
-@snap[south-west snap-100]
-16% of developers don't have any tests in their projects. Among fully-employed senior developers
-though, that statistic is just 8%.
-@snapend
+16% não tem testes nos projetos que trabalham. Percentual baixa para 8% considerando só
+profissionais senior.
+
+---
+@title[Pytest Quick Intro]
+
+# Pytest
+
+---
+@title[Pytest Quick Intro]
+
+![img](assets/trends-pytest-unittest.png)
+
+Pytest tornou-se o framework de testes padrão _de facto_ para Python
+
+---
+@title[Pytest Quick Intro]
+
+`roman7.py`
+
+```python
+def to_roman(n):
+    '''convert integer to Roman numeral'''
+    ...
+
+def from_roman(s):
+    '''convert Roman numeral to integer'''
+    ...
+```
+
+---
+@title[Pytest Quick Intro]
+
+`test_roman7.py`
+
+```python
+from roman7 import to_roman, from_roman
+
+def test_roman_conversion():
+    assert to_roman(3) == 'III'
+    assert from_roman('IV') == 4
+```
+
+---
+@title[Fixtures]
+
+# Pytest fixtures
+
+---
+@title[Fixtures - definition]
+
+O que são _fixtures_?
+
+> provide a fixed baseline upon which tests can reliably and repeatedly
+execute. - pytest docs
+
+---
+@title[Fixtures - definition]
+
+O que são _fixtures_?
+
+> resolve problemas reais que ocorrem na criação de testes
+unitários - Ghisi, 2018
+
+---
+@title[Fixtures - example]
+
+```python
+def test_naive_roman_writer():
+    text = "In the Book 3 Chapter 7 of the 2 Collection"
+    output_file = 'roman.txt'
+    write_to_roman(text, output_file)
+    with open(output_file) as output:
+        assert output.read() == "In the Book III Chapter VII of the II Collection"
+```
+
+@[4]
+@[5-6]
+
+---
+@title[Fixtures - example]
+
+```python
+def test_roman_writer3(tmpdir):
+    text = "In the Book 3 Chapter 7 of the 2 Collection"
+    output_file = tmpdir.mkdir('test_romans').join('roman.txt')
+    write_to_roman(text, str(output_file))
+    assert output_file.read() == "In the Book III Chapter VII of the II Collection"
+```
+
+@[1]
+@[3]
+
+---
+@title[Plugins]
+
+Plugins: bibliotecas python que disponibilizam uma ou mais fixtures
+
+---
+@title[pytest-datadir]
+
+`pip install pytest-datadir`
 
 ---
 
+
+---
 @title[People]
 
 ### It's About People
