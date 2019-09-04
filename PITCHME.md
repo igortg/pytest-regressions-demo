@@ -47,11 +47,11 @@
 ---
 @title[JetBrains Survey]
 
-@snap[north]
+@snap[north-west snap-66]
 ![img](assets/jetbrains-2018-tests.png)
 @snapend
 
-@snap[south]
+@snap[south-west snap-100]
 16% of developers don't have any tests in their projects. Among fully-employed senior developers
 though, that statistic is just 8%.
 @snapend
