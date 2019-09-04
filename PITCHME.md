@@ -28,16 +28,20 @@
 ---?code=src/flask_conf_tutorial/player_char.py
 @title[Abrindo o apetite]
 
-@[23-48](Testando atributos manualmente)
+@[23-37]
+@[38-48]
 
 ---?code=src/flask_conf_tutorial/test_player_char.py
 @title[Abrindo o apetite]
 
-@[22-37](sem pytest-regressions)
-@[40-47](com pytest-regressions)
+@[22-37](antes)
+@[40-47](depois)
 
----?code=src/flask_conf_tutorial/test_empregado.py
+---?code=src/flask_conf_tutorial/test_sklearn_tutorial.py
 @title[Abrindo o apetite]
+
+@[6-19](antes)
+@[22-30](depois)
 
 ---
 @title[People]

@@ -5,7 +5,9 @@
 # https://github.com/gitpitch/gitpitch/wiki/Slideshow-Settings
 #
 theme : template
-theme-background : [ "#9fa3a6" ]
+theme-background : [ "#cdd1d4" ]
+theme-headline   : [ "Raleway", "#E27924", "none" ]
+
 # theme-override : assets/css/PITCHME.css
 logo : assets/logo.png
 highlight : atom-one-light
