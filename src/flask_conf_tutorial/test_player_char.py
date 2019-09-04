@@ -45,4 +45,3 @@ def test_level_up_regression(session, data_regression):
     player_char.level_up()
 
     data_regression.check(dump(player_char))
-

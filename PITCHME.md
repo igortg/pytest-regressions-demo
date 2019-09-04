@@ -25,25 +25,39 @@
 
 ## Abrindo o apetite...
 
----?code=src/flask_conf_tutorial/player_char.py
+---?code=src/flask_conf_tutorial/player_char.py&lang=python
 @title[Abrindo o apetite]
 
 @[23-37]
-@[38-48]
+@[38-52]
 
----?code=src/flask_conf_tutorial/test_player_char.py
+---?code=src/flask_conf_tutorial/test_player_char.py&lang=python
 @title[Abrindo o apetite]
 
 @[22-37](antes)
 @[40-47](depois)
 
----?code=src/flask_conf_tutorial/test_sklearn_tutorial.py
+---?code=src/flask_conf_tutorial/test_sklearn_tutorial.py&lang=python
 @title[Abrindo o apetite]
 
+@[6-13]
 @[6-19](antes)
 @[22-30](depois)
 
 ---
+@title[JetBrains Survey]
+
+@snap[north]
+![img](assets/jetbrains-2018-tests.png)
+@snapend
+
+@snap[south]
+16% of developers don't have any tests in their projects. Among fully-employed senior developers
+though, that statistic is just 8%.
+@snapend
+
+---
+
 @title[People]
 
 ### It's About People
