@@ -1,7 +1,8 @@
 import enum
 from datetime import datetime
 
-from sqlalchemy import Column, Integer, String, Date, Float, Enum
+from sqlalchemy import Column, Integer, String, Date, Float, Enum, ForeignKey
+from sqlalchemy.orm import relationship
 
 from .app import Base
 
@@ -18,6 +19,15 @@ class RacaChar(enum.Enum):
     Human = enum.auto()
     Elf = enum.auto()
     Orc = enum.auto()
+
+
+class Espada(Base):
+    __tablename__ = 'Espada'
+
+    id = Column(Integer, primary_key=True)
+    nome = Column(String)
+    dano = Column(Float)
+    min_level = Column(Float)
 
 
 class PlayerChar(Base):
@@ -41,9 +51,13 @@ class PlayerChar(Base):
     modificador_espada = Column(Float)
     modificador_machado = Column(Float)
     modificador_arco = Column(Float)
-    #
+    # Meta
     data_criacao = Column(Date, default=datetime.now())
     data_ultimo_level_up = Column(Date)
+    # primary
+    arma_primaria_id = Column(Integer, ForeignKey('Espada.id'))
+    arma_primaria = relationship(Espada)
+
 
     def level_up(self):
         self.level += 1
@@ -60,3 +74,25 @@ class PlayerChar(Base):
             self.modificador_arco = self.habilidade * 0.04
 
         self.data_ultimo_level_up = datetime.now()
+
+
+    PONTOS_XP_PRA_UPAR = 1000
+
+    @property
+    def ja_pode_upar(self):
+        """
+        Verifica se o Char já pode subir de level.
+
+        :rtype: bool
+        """
+        return self.pontos_xp / self.level > self.PONTOS_XP_PRA_UPAR
+
+
+from serialchemy import ModelSerializer, Field
+
+class PlayerCharSerializer(ModelSerializer):
+
+    id = Field(dump_only=True)
+    pontos_xp = Field(load_only=True)
+    ja_pode_upar = Field(dump_only=True)
+

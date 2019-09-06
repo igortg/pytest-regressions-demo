@@ -1,0 +1,4 @@
+Package,Robustness,API,Version
+pytest-datadir,battle tested,Stable,1.3.0
+pytest-regressions,battle tested,Stable,1.0.5
+serialchemy,battle tested,Unstable,0.2.0

@@ -6,11 +6,11 @@
 #
 theme : template
 theme-background : [ "#cdd1d4" ]
-theme-headline   : [ "Raleway", "#E27924", "none" ]
+theme-headline   : [ "Ubuntu", "#E27924", "none" ]
 
 # theme-override : assets/css/PITCHME.css
 logo : assets/logo.png
-highlight : atom-one-light
+highlight : tomorrow
 # published : true
 footnote : "Uso de Testes de Regressão Modelos Numéricos e ORMs - Flask Conf 2019"
 

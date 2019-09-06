@@ -3,15 +3,16 @@ from datetime import datetime
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from serialchemy.func import dump
 
-from flask_conf_tutorial.app import Base
-from flask_conf_tutorial.player_char import PlayerChar, ClasseChar, RacaChar
+from freezegun import freeze_time
+from sqlalchemy_hello.app import Base
+from sqlalchemy_hello.player_char import PlayerChar, ClasseChar, RacaChar
+from sqlalchemy_hello.script import PlayerCharSerializer
 
 
 @pytest.fixture
 def session():
-    engine = create_engine('sqlite:///:memory:')
+    engine = create_engine('sqlite://')
     conn = engine.connect()
     Base.metadata.create_all(bind=conn)
     Session = sessionmaker(bind=conn)
@@ -19,7 +20,7 @@ def session():
     conn.close()
 
 
-def test_level_up(session):
+def test_level_up_naive(session):
     player_char = PlayerChar(nome="Yennefer", classe=ClasseChar.Xama, raca=RacaChar.Human)
     session.add(player_char)
     session.commit()
@@ -37,11 +38,15 @@ def test_level_up(session):
     assert player_char.modificador_machado == 0.315
 
 
-def test_level_up_regression(session, data_regression):
+@freeze_time("2010-01-01")
+def test_level_up(session, data_regression):
     player_char = PlayerChar(nome="Yennefer", classe=ClasseChar.Xama, raca=RacaChar.Human)
     session.add(player_char)
     session.commit()
 
     player_char.level_up()
 
-    data_regression.check(dump(player_char))
+    serialized = PlayerCharSerializer(PlayerChar).dump(player_char)
+    data_regression.check(serialized)
+
+# .
