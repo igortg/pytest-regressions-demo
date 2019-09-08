@@ -2,6 +2,8 @@ from datetime import datetime
 
 from flask import Flask, render_template, jsonify
 
+from sqlalchemy_hello.app import db_session
+
 app = Flask(__name__)
 
 
@@ -38,12 +40,12 @@ HEROES = [
 ];
 
 
-@app.route('/api/player-char/<int:player_id>')
+@app.route('/api/player-char/<int:player_char_id>')
 def player_char_item(player_char_id):
     from sqlalchemy_hello.app import init_db
     from sqlalchemy_hello.player_char import PlayerChar, PlayerCharSerializer
 
-    session = init_db()
+    session = db_session()
     player_char = session.query(PlayerChar).get(player_char_id)
     serialized = PlayerCharSerializer(PlayerChar).dump(player_char)
     return serialized

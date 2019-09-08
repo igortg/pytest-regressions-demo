@@ -39,7 +39,7 @@ class PlayerChar(Base):
     classe = Column(Enum(ClasseChar))
     # Level
     pontos_xp = Column(Integer, default=0)
-    level = Column(Integer, default=0)
+    level = Column(Integer, default=1)
     # Atributos
     forca = Column(Float, default=10)
     habilidade = Column(Float, default=10)
@@ -88,11 +88,12 @@ class PlayerChar(Base):
         return self.pontos_xp / self.level > self.PONTOS_XP_PRA_UPAR
 
 
-from serialchemy import ModelSerializer, Field
+from serialchemy import ModelSerializer, Field, NestedModelField
+
 
 class PlayerCharSerializer(ModelSerializer):
 
     id = Field(dump_only=True)
     pontos_xp = Field(load_only=True)
     ja_pode_upar = Field(dump_only=True)
-
+    arma_primaria = NestedModelField(Espada)

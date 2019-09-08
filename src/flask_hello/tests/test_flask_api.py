@@ -25,9 +25,3 @@ def test_flask_api_regression_collection(client, data_regression):
         resp.get_json(),
         basename='test_flask_api_item'
     )
-
-
-def test_flask_api_player_char(client):
-
-
-    resp = client.get('/api/heroes/1')

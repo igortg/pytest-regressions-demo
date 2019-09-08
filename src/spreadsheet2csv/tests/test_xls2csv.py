@@ -1,4 +1,4 @@
-from sqlalchemy_hello.spreadsheet2csv.xls2csv import xls2csv
+from spreadsheet2csv.xls2csv import xls2csv
 
 
 def test_xls2csv_naive():

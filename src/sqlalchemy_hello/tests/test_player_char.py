@@ -6,8 +6,7 @@ from sqlalchemy.orm import sessionmaker
 
 from freezegun import freeze_time
 from sqlalchemy_hello.app import Base
-from sqlalchemy_hello.player_char import PlayerChar, ClasseChar, RacaChar
-from sqlalchemy_hello.script import PlayerCharSerializer
+from sqlalchemy_hello.player_char import PlayerChar, ClasseChar, RacaChar, PlayerCharSerializer
 
 
 @pytest.fixture
@@ -48,5 +47,8 @@ def test_level_up(session, data_regression):
 
     serialized = PlayerCharSerializer(PlayerChar).dump(player_char)
     data_regression.check(serialized)
+
+
+
 
 # .

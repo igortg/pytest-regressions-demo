@@ -5,20 +5,24 @@
 
 <span style="font-size: 0.5em">[ Igor T. Ghisi, Flask-Conf, 2019-09-08 ]</span>
 
----
+---?color=linear-gradient(90deg, white 50%, black 20%)
 @title[Who Am I]
 
-<div class="left">
-![img](./assets/image/esss-white.png)<br>
-![img](./assets/image/fpolis.gif)<br>
+@snap[west span-45 text-07]
+- Cria Apps & Libs Python (Desktop & Web) desde 2004
+- Trabalha na ESSS
+- Cria soluções para área de P&D da Industria de Óleo & Gas
+@snapend
 
-</div>
+@snap[south-west span-30]
+![ESSS](assets/esss.png)
+@snapend
 
-<div class="right">
-<p>![img](./assets/image/me.jpg)</p>
-<p>@fa[github] igortg</p>
-<p>@fa[twitter] figortg</p>
-</div>
+@snap[east text-white]
+@fa[github] igortg
+@fa[twitter] figortg
+@snapend
+
 
 ---
 @title[Abrindo o apetite]
@@ -36,11 +40,12 @@
 ---
 @title[Abrindo o apetite]
 
-@code[python code-reveal-fast](src/sqlalchemy_hello/tests/test_player_char.py)
+@code[python](src/sqlalchemy_hello/tests/test_player_char.py)
 
-@[23-29](antes)
-@[28-40](antes)
+@[22-28](antes)
+@[28-38](antes)
 @[41-50](depois)
+@[46-50](depois)
 
 ---
 @title[Abrindo o apetite]
@@ -222,14 +227,6 @@ Mencionar que o datadir copia tudo pra um arquivo temporario
 @box[bg-black text-white](`pip install pytest-regressions`)
 @snapend
 
----?color=linear-gradient(95deg, gray 64%, orange 36%)
-@title[pytest-regressions]
-
-@snap[west span-55 text-white]
-Testes de Regressão
-@quote[teste de software que visa garantir que o mesmo continue funcionando da mesma forma apos modificação ou adição de funcionalidade.](Wikipedia)
-@snapend
-
 ---
 @title[file_regression]
 
@@ -249,13 +246,34 @@ Testes de Regressão
 
 ---?image=assets/expanding-brain.jpg&size=45% 93%&color=black
 
+---?color=linear-gradient(95deg, gray 64%, orange 36%)
+@title[pytest-regressions]
+
+@snap[west span-55 text-white]
+Testes de Regressão
+@quote[teste de software que visa garantir que o mesmo continue funcionando da mesma forma apos modificação ou adição de funcionalidade.](Wikipedia)
+@snapend
+
+---?color=linear-gradient(95deg, gray 64%, orange 36%)
+@title[pytest-regressions]
+
+@snap[west span-55 text-white]
+TDD ou Testes Unitários?
+@quote[Not doing TDD all the time is not a moral failure.](David Heinemeier Hansson)
+@snapend
+
+@snap[south-west span-55 text-white]
+<span style="font-size: 0.5em;">Brian Oken. _Test & Code - Episode 45_</span>
+@snapend
+
+
 ---
 @title[file_regression]
 
 `file_regression` em um Flask App
 @code[python  code-reveal-fast](src/flask_hello/app.py)
 
-@[7-11]
+@[7-12]
 
 ---
 @title[file_regression]
@@ -296,8 +314,8 @@ Testes de Regressão
 @title[data_regression]
 
 @code[python code-reveal-fast](src/flask_hello/app.py)
-@[7-11]
-@[26-39]
+@[14-18]
+@[28-41]
 
 ---
 @title[data_regression]
@@ -305,7 +323,8 @@ Testes de Regressão
 
 @[2-9]
 @[11-14]
-@[17-27](Mais de uma regressão por teste - evitar)
+@[17-27]
+@[24-27](Mais de uma regressão por teste - evitar)
 
 ---
 @title[serialchemy]
@@ -434,9 +453,11 @@ class PlayerCharSerializer(ModelSerializer):
 
 @code[python code-reveal-fast](src/sqlalchemy_hello/tests/test_player_char.py)
 
-@[25-40]
-@[43-51]
-@[47-51]
+@[22-37](Teste sem Regressão)
+@[40-50]
+@[48-51, zoom-12]
+@[40, zoom-12]
+@[40-50]
 
 ---
 
@@ -460,12 +481,34 @@ class PlayerCharSerializer(ModelSerializer):
 ---
 @title[People]
 
+
+@snap[midpoint span-70]
 ### It's About People
+@img[](assets/team.png)
+@snapend
+---
+
+@snap[west text-04 text-center span-25]
+![img](https://images-na.ssl-images-amazon.com/images/I/51k0AdbAbbL._SX260_.jpg)
+Pytest Quick Start Guide - _Bruno Oliveira_
+@snapend
+
+@snap[midpoint text-04 text-center span-29]
+![img](assets/signalvnoise.png)
+http://signalvnoise.com - _Basecamp_
+@snapend
+
+
+@snap[east text-04 text-center span-28]
+![img](https://assets.fireside.fm/file/fireside-images/podcasts/images/b/bc7f1faf-8aad-4135-bb12-83a8af679756/cover_small.jpg)
+Test & Code - _Brian Oken_
+@snapend
 
 ---
 
-### That's all
+### Isso é tudo
 
-![img](assets/image/queen.gif)
+- @fa[github] igortg
+- @fa[twitter] figortg
 
 ---
