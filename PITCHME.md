@@ -506,9 +506,9 @@ Test & Code - _Brian Oken_
 
 ---
 
+@snap[midpoint span-50]
 ### Isso é tudo
-
-- @fa[github] igortg
-- @fa[twitter] figortg
+@box[bg-black text-white](@fa[github]/igortg/flask-conf-2019)
+@snapend
 
 ---
